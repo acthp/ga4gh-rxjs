@@ -1,4 +1,4 @@
-/*global require: false, module: false, __dirname: false */
+/*global module: false, __dirname: false */
 'use strict';
 
 module.exports = {
