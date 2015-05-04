@@ -39,7 +39,7 @@ var methods = {
 		defaults: {datasetIds: []},
 		validate: function ({datasetIds}) {
 			assertAll([
-				[_.isArray(datasetIds), "datasetIds is not array"]
+				[_.isArray(datasetIds), 'datasetIds is not array']
 			]);
 		},
 		query: (url, body) => post(`${url}/variantsets/search`, body)
@@ -49,14 +49,14 @@ var methods = {
 		defaults: {callSetIds: []},
 		validate: function ({start, end, callSetIds, referenceName, variantSetIds}) {
 			assertAll([
-				[_.isNumber(start), "start position is not number"],
-				[_.isNumber(end), "end position is not number"],
-				[_.isArray(callSetIds), "callSetsIds is not array"],
-				[_.isString(referenceName), "referenceName is not string"],
-				[_.isArray(variantSetIds), "variantSetIds is not array"],
-				[start >= 0, "start position is negative"],
-				[end >= 0, "end position is negative"],
-				[end > start, "end is not greater than start"]
+				[_.isNumber(start), 'start position is not number'],
+				[_.isNumber(end), 'end position is not number'],
+				[_.isArray(callSetIds), 'callSetsIds is not array'],
+				[_.isString(referenceName), 'referenceName is not string'],
+				[_.isArray(variantSetIds), 'variantSetIds is not array'],
+				[start >= 0, 'start position is negative'],
+				[end >= 0, 'end position is negative'],
+				[end > start, 'end is not greater than start']
 			]);
 		},
 		query: (url, body) => post(`${url}/variants/search`, body)
@@ -66,9 +66,9 @@ var methods = {
 		defaults: {md5checksums: [], accessions: []},
 		validate: function ({md5checksums, accessions, assemblyId}) {
 			assertAll([
-				[_.isArray(md5checksums), "md5checksums is not array"],
-				[_.isArray(accessions), "accessions is not array"],
-				[!assemblyId || _.isString(assemblyId), "assemblyId is not string"]
+				[_.isArray(md5checksums), 'md5checksums is not array'],
+				[_.isArray(accessions), 'accessions is not array'],
+				[!assemblyId || _.isString(assemblyId), 'assemblyId is not string']
 			]);
 		},
 		query: (url, body) => post(`${url}/referencesets/search`, body)
@@ -78,8 +78,8 @@ var methods = {
 		defaults: {md5checksums: [], accessions: []},
 		validate: function ({md5checksums, accessions}) {
 			assertAll([
-				[_.isArray(md5checksums), "md5checksums is not array"],
-				[_.isArray(accessions), "accessions is not array"]
+				[_.isArray(md5checksums), 'md5checksums is not array'],
+				[_.isArray(accessions), 'accessions is not array']
 			]);
 		},
 		query: (url, body) => post(`${url}/references/search`, body)
@@ -89,14 +89,14 @@ var methods = {
 		defaults: {readGroupIds: []},
 		validate: function ({readGroupIds, referenceName, referenceId, start, end}) {
 			assertAll([
-				[_.isArray(readGroupIds), "readGroupIds is not array"],
-				[!referenceName || _.iString(referenceName), "referenceName is not string"],
-				[!referenceId || _.iString(referenceId), "referenceId is not string"],
-				[_.isNumber(start), "start position is not number"],
-				[start >= 0, "start position is negative"],
-				[_.isNumber(end), "end position is not number"],
-				[end >= 0, "end position is negative"],
-				[end > start, "end is not greater than start"]
+				[_.isArray(readGroupIds), 'readGroupIds is not array'],
+				[!referenceName || _.iString(referenceName), 'referenceName is not string'],
+				[!referenceId || _.iString(referenceId), 'referenceId is not string'],
+				[_.isNumber(start), 'start position is not number'],
+				[start >= 0, 'start position is negative'],
+				[_.isNumber(end), 'end position is not number'],
+				[end >= 0, 'end position is negative'],
+				[end > start, 'end is not greater than start']
 			]);
 		},
 		query: (url, body) => post(`${url}/reads/search`, body)
@@ -106,8 +106,8 @@ var methods = {
 		defaults: {datasetIds: []},
 		validate: function ({datasetIds, name}) {
 			assertAll([
-				[_.isArray(datasetIds), "datasetIds is not array"],
-				[!name || _.isString(name), "name is not array"]
+				[_.isArray(datasetIds), 'datasetIds is not array'],
+				[!name || _.isString(name), 'name is not array']
 			]);
 		},
 		query: (url, body) => post(`${url}/readgroupsets/search`, body)
@@ -117,8 +117,8 @@ var methods = {
 		defaults: {variantSetIds: []},
 		validate: function ({variantSetIds, name}) {
 			assertAll([
-				[_.isArray(variantSetIds), "variantSetIds is not array"],
-				[!name || _.isString(name), "name is not string"]
+				[_.isArray(variantSetIds), 'variantSetIds is not array'],
+				[!name || _.isString(name), 'name is not string']
 			]);
 		},
 		query: (url, body) => post(`${url}/callsets/search`, body)
