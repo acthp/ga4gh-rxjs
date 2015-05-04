@@ -118,7 +118,7 @@ var methods = {
 		validate: function ({variantSetIds, name}) {
 			assertAll([
 				[_.isArray(variantSetIds), "variantSetIds is not array"],
-				[!name || _.isString(name), "name is not array"]
+				[!name || _.isString(name), "name is not string"]
 			]);
 		},
 		query: (url, body) => post(`${url}/callsets/search`, body)
