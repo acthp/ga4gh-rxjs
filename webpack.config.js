@@ -11,7 +11,6 @@ module.exports = {
 		libraryTarget: "umd"
 	},
 	externals: {
-		"jquery": "jQuery",
 		"underscore": "_",
 		"rx": "Rx",
 		"rx.experimental": "rx-experimental",

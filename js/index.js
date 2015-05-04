@@ -5,7 +5,6 @@ var _ = require('underscore');
 var Rx = require('rx-dom');
 require('rx.experimental');
 
-var jQuery = require('jquery');
 function assertAll(arr) {
 	_.each(arr, ([assertion, msg]) => {
 		if (!assertion) {
