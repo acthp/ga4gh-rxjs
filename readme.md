@@ -9,7 +9,7 @@ Ga4gh APIs are methods for exchanging genomic and clinical data. Rx is a library
 
 Ga4gh method references are [here](http://ga4gh.org/documentation/api/v0.5.1/ga4gh_api.html#/).
 
-ga4gh-rxjs exports each method as a property. Each exported method takes two
+ga4gh-rxjs exports each ga4gh method as a property. Each exported method takes two
 parameters: the url of the ga4gh server, and a javascript object with the properties
 of the query. For example,
 
@@ -34,7 +34,7 @@ ga4gh.variantSets(url).subscribe(d => console.log('One page of variantSets', d))
 The Ga4gh APIs are paged. To control the page size, include `pageSize` in
 the param object, as per the ga4gh docs.
 
-Available methods are
+Available ga4gh methods are
 
 ```
 ga4gh.variantSets
