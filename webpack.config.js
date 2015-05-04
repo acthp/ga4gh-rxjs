@@ -11,10 +11,30 @@ module.exports = {
 		libraryTarget: "umd"
 	},
 	externals: {
-		"underscore": "_",
-		"rx": "Rx",
-		"rx.experimental": "rx-experimental",
-		"rx-dom": "rx-dom"
+		"underscore": {
+			root: "_",
+			commonjs: "underscore",
+			commonjs2: "underscore",
+			amd: "underscore"
+		},
+		"rx": {
+			root: "Rx",
+			commonjs: "rx",
+			commonjs2: "rx",
+			amd: "rx"
+		},
+		"rx.experimental": {
+			root: "Rx",
+			commonjs: "rx.experimental",
+			commonjs2: "rx.experimental",
+			amd: "rx.experimental"
+		},
+		"rx-dom": {
+			root: "Rx",
+			commonjs: "rx-dom",
+			commonjs2: "rx-dom",
+			amd: "rx-dom"
+		}
 	},
 	module: {
 		loaders: [
