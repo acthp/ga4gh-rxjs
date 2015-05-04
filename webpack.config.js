@@ -1,38 +1,35 @@
 /*global require: false, module: false, __dirname: false */
 'use strict';
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var webpack = require('webpack');
 
 module.exports = {
-	historyApiFallback: true,
-	entry: "./js/bogorouter",
+	entry: "./js/index",
 	output: {
-		path: "build",
+		path: "./dist",
 		publicPath: "/",
-		filename: "[name].js"
+		filename: "ga4gh-rx.js",
+		library: "ga4gh-rxjs",
+		libraryTarget: "umd"
+	},
+	externals: {
+		"jquery": "jQuery",
+		"underscore": "_",
+		"rx": "Rx",
+		"rx.experimental": "rx-experimental",
+		"rx-dom": "rx-dom"
 	},
 	module: {
 		loaders: [
 			{ test: /rx-dom/, loader: "imports?define=>false" },
-			{ test: /\.css$/, loader: "style!css" },
-			{ test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader?optional=runtime,cacheDirectory=true'},
-			{ test: /\.haml$/, loader: 'haml-loader' },
-			{ test: /\.(jpe?g|png|gif|svg|eot|woff2?|ttf)$/i, loaders: ['url?limit=10000'] }
+			{ test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader?cacheDirectory=true'}
 		]
 	},
-	plugins: [
-		new HtmlWebpackPlugin({
-			title: "Template Project",
-			filename: "index.html",
-			template: "page.template"
-		}),
-		new webpack.OldWatchingPlugin()
-	],
+	plugins: [],
 	resolve: {
 		alias: {
 			rx$: 'rx/dist/rx',
 			'rx.binding$': 'rx/dist/rx.binding',
 			'rx.async$': 'rx/dist/rx.async',
+			'rx.experimental$': 'rx/dist/rx.experimental',
 			'rx.coincidence$': 'rx/dist/rx.coincidence'
 		},
 		extensions: ['', '.js', '.json', '.coffee'],
