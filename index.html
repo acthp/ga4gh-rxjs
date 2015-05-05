@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>ga4gh-rxjs demo</title>
+	</head>
+	<body id="body">
+		<script src="https://rawgit.com/reactive-extensions/rxjs/v2.5.2/dist/rx.js"></script>
+		<script src="https://rawgit.com/reactive-extensions/rxjs/v2.5.2/dist/rx.experimental.js"></script>
+		<script src="https://rawgit.com/reactive-extensions/rxjs-dom/v4.0.4/dist/rx.dom.js"></script>
+		<script src="https://rawgit.com/jashkenas/underscore/1.8.3/underscore.js"></script>
+		<script src="dist/ga4gh-rx.js"></script>
+		<script src="demo.js"></script>
+		<div style="background-color: #EEEEEE;padding: 10px">
+			<label>ga4gh.variantSets(url)</label>
+			<p>Fetching one page of variantSets. The return includes the page token.</p>
+            <p id="stats1"></p>
+			<textarea id="output1" style="width:60%;height:300px"></textarea>
+		</div>
+		<div style="padding: 10px">
+			<label>ga4gh.all.variantSets(url)</label>
+			<p>Fetching all pages of variantSets. The return is all the matching rows.</p>
+            <p id="stats2"></p>
+			<textarea id="output2" style="width:60%;height:300px"></textarea>
+		</div>
+		<div style="background-color: #EEEEEE;padding: 10px">
+			<label>ga4gh.variants(url, {
+				start: 41215898,
+				end: 41415899,
+				referenceName: "17",
+				variantSetIds: ['Clinvar']
+			})</label>
+			<p>Fetching one page of matching variants.</p>
+            <p id="stats3"></p>
+			<textarea id="output3" style="width:60%;height:300px"></textarea>
+		</div>
+		<div style="padding: 10px">
+			<label>ga4gh.all.variants(url, {
+				start: 41215898,
+				end: 41415899,
+				referenceName: "17",
+				variantSetIds: ['Clinvar']
+			})</label>
+			<p>Fetching all pages of matching variants.</p>
+            <p id="stats4"></p>
+			<textarea id="output4" style="width:60%;height:300px">Loading...</textarea>
+		</div>
+	</body>
+</html>
