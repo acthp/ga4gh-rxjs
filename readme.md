@@ -57,6 +57,13 @@ properties from the results (i.e. the page tokens are dropped).
 ga4gh.all.variantSets(url).subscribe(d => console.log('All rows of variantSets', d));
 ```
 
+## Demo
+
+A few queries demonstrated [here]( http://rawgit.com/acthp/ga4gh-rxjs/master/index.html).
+
+Source [here](http://rawgit.com/acthp/ga4gh-rxjs/master/demo.js).
+
+
 ## Installation
 
 The library is built as a UMD module, and so should work as a CommonJS module, AMD
@@ -77,7 +84,7 @@ ga4gh.variantSets("http://foo.bar").subscribe(console.log.bind(console));
 ### script tag
 
 If including ga4gh-rxjs with a script tag, the methods will be exposed on
-the `ga4gh` global. You must include rx.js, rx.experimental.js, rx-dom.js, and underscore.js.
+the `ga4gh` global. You must include rx.js, rx.experimental.js, rxjs-dom.js, and underscore.js.
 
 ```html
 <script src="https://rawgit.com/reactive-extensions/rxjs/v2.5.2/dist/rx.js"></script>
