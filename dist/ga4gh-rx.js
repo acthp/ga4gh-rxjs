@@ -227,24 +227,13 @@ return /******/ (function(modules) { // webpackBootstrap
 		};
 	}
 
-	var pushtoken = function pushtoken(token) {
-		window.tokens.push(token);return token;
-	};
-	var pushlength = function pushlength(data) {
-		console.log('one page', data, data.length);window.lengths.push(data.length);console.log('lengths', window.lengths);return data;
-	};
-
 	function allPagesQuery(method) {
 		return function (url, props) {
-			console.log('setting lengths to zero');
-			window.tokens = [];
-			window.lengths = [];
-			console.log('lengths', window.lengths);
 			var body = merge(method.defaults, props);
 			method.validate(body);
 			return method.query(url, body).expand(function (r) {
-				return pushtoken(r.nextPageToken) ? method.query(url, assoc(body, 'pageToken', r.nextPageToken)) : Rx.Observable.empty();
-			}).map(method.selector)['do'](pushlength).toArray().map(function (a) {
+				return r.nextPageToken ? method.query(url, assoc(body, 'pageToken', r.nextPageToken)) : Rx.Observable.empty();
+			}).map(method.selector).toArray().map(function (a) {
 				return _.flatten(a, true);
 			}); // XXX ob.reduce would be faster
 		};
