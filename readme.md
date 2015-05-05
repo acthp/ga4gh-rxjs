@@ -40,7 +40,7 @@ Available ga4gh methods are
 ga4gh.variantSets
 ga4gh.variants
 ga4gh.referenceSets
-ga4gh.refereences
+ga4gh.references
 ga4gh.reads
 ga4gh.readGroupSets
 ga4gh.callSets
