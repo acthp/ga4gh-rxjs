@@ -1,7 +1,7 @@
 {
-  "name": "client-template",
+  "name": "ga4gh-rxjs",
   "version": "1.0.0",
-  "description": "client project template",
+  "description": "Client lib for ga4gh APIs, with rxjs",
   "main": "index.js",
   "scripts": {
     "test": "webpack-dev-server --config webpack.test.js --port 8081",
