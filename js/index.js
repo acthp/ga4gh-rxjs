@@ -107,7 +107,7 @@ var methods = {
 		validate: function ({datasetIds, name}) {
 			assertAll([
 				[_.isArray(datasetIds), 'datasetIds is not array'],
-				[!name || _.isString(name), 'name is not array']
+				[!name || _.isString(name), 'name is not string']
 			]);
 		},
 		query: (url, body) => post(`${url}/readgroupsets/search`, body)
