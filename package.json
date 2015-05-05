@@ -2,7 +2,7 @@
   "name": "ga4gh-rxjs",
   "version": "1.0.0",
   "description": "Client lib for ga4gh APIs, with rxjs",
-  "main": "index.js",
+  "main": "dist/ga4gh-rx.js",
   "scripts": {
     "test": "webpack-dev-server --config webpack.test.js --port 8081",
     "lint": "eslint --no-color js/* test/*",
