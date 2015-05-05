@@ -1,6 +1,6 @@
-# Ga4gh APIs in javascript, with Rx
+# Client for Ga4gh APIs in javascript, with Rx
 
-ga4gh-rxjs is an implementation of the [Ga4gh](http://ga4gh.org/) [APIs](http://ga4gh.org/documentation/api/v0.5.1/ga4gh_api.html#/)
+ga4gh-rxjs is a client library for the [Ga4gh](http://ga4gh.org/) [APIs](http://ga4gh.org/documentation/api/v0.5.1/ga4gh_api.html#/)
 in javascript, using [rxjs](https://github.com/Reactive-Extensions/RxJS).
 
 Ga4gh APIs are methods for exchanging genomic and clinical data. Rx is a library for taming asynchronous code.
