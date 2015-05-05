@@ -59,7 +59,7 @@ ga4gh.all.variantSets(url).subscribe(d => console.log('All rows of variantSets',
 
 ## Installation
 
-The library is build as a UMD module, and so should work as a CommonJS module, AMD
+The library is built as a UMD module, and so should work as a CommonJS module, AMD
 module, or with a `<script>` tag. If you have a choice, we recommend a build with
 npm and webpack.
 
@@ -74,7 +74,7 @@ var ga4gh = require('ga4gh-rxjs');
 ga4gh.variantSets("http://foo.bar").subscribe(console.log.bind(console));
 ```
 
-### <script>
+### script tag
 
 If including ga4gh-rxjs with a script tag, the methods will be exposed on
 the `ga4gh` global. You must include rx.js, rx.experimental.js, rx-dom.js, and underscore.js.
