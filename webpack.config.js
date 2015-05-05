@@ -7,7 +7,7 @@ module.exports = {
 		path: "./dist",
 		publicPath: "/",
 		filename: "ga4gh-rx.js",
-		library: "ga4gh-rxjs",
+		library: "ga4gh",
 		libraryTarget: "umd"
 	},
 	externals: {
