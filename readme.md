@@ -73,7 +73,7 @@ npm and webpack.
 ### webpack (and browserify?)
 
 ```sh
-> npm install git://github.com/acthp/ga4gh-rxjs.git
+> npm install ga4gh-rxjs
 ```
 
 ```javascript
