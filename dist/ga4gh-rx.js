@@ -196,7 +196,7 @@ return /******/ (function(modules) { // webpackBootstrap
 				var datasetIds = _ref8.datasetIds;
 				var name = _ref8.name;
 
-				assertAll([[_.isArray(datasetIds), 'datasetIds is not array'], [!name || _.isString(name), 'name is not array']]);
+				assertAll([[_.isArray(datasetIds), 'datasetIds is not array'], [!name || _.isString(name), 'name is not string']]);
 			},
 			query: function query(url, body) {
 				return post('' + url + '/readgroupsets/search', body);
