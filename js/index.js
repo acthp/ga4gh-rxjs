@@ -27,10 +27,11 @@ function assoc(o, ...args) {
 //  XXX check rx versions. It's weird that it's modifying this header.
 //	headers: {'Content-Type': 'application/json' },
 function post(url, body) {
-	return Rx.DOM.ajax(merge({
+	return Rx.DOM.ajax({
 		url: url,
-		body: body
-	}, {method: 'POST'})).pluck('response').map(JSON.parse);
+		body: body,
+		method: 'POST'
+	}).pluck('response').map(JSON.parse);
 }
 
 var methods = {
