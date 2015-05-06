@@ -23,12 +23,6 @@ module.exports = {
 			commonjs2: "rx",
 			amd: "rx"
 		},
-		"rx.experimental": {
-			root: "Rx",
-			commonjs: "rx.experimental",
-			commonjs2: "rx.experimental",
-			amd: "rx.experimental"
-		},
 		"rx-dom": {
 			root: "Rx",
 			commonjs: "rx-dom",
@@ -44,13 +38,6 @@ module.exports = {
 	},
 	plugins: [],
 	resolve: {
-		alias: {
-			rx$: 'rx/dist/rx',
-			'rx.binding$': 'rx/dist/rx.binding',
-			'rx.async$': 'rx/dist/rx.async',
-			'rx.experimental$': 'rx/dist/rx.experimental',
-			'rx.coincidence$': 'rx/dist/rx.coincidence'
-		},
 		extensions: ['', '.js', '.json', '.coffee'],
 		root: __dirname + "/js"
 	}

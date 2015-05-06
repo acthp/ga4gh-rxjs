@@ -2,8 +2,8 @@
 'use strict';
 
 var _ = require('underscore');
-var Rx = require('rx-dom'); // will pull in Rx core for us.
-require('rx.experimental');
+var Rx = require('rx');
+require('rx-dom');
 
 function assertAll(arr) {
 	_.each(arr, ([assertion, msg]) => {
