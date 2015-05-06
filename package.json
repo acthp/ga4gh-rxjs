@@ -1,6 +1,6 @@
 {
   "name": "ga4gh-rxjs",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Client lib for ga4gh APIs, with rxjs",
   "main": "dist/ga4gh-rx.js",
   "scripts": {
