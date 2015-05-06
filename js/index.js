@@ -18,12 +18,6 @@ function merge(...args) {
 	return _.extend.apply(null, [{}].concat(args));
 }
 
-// immutable 'set' method for plain js objects.
-function assoc(o, ...args) {
-	return merge(o, _.object.apply(null,
-				_.partition(args, (a, i) => i % 2 === 0)));
-}
-
 //  XXX check rx versions. It's weird that it's modifying this header.
 //	headers: {'Content-Type': 'application/json' },
 function post(url, body) {
@@ -140,11 +134,11 @@ function allPagesQuery(method) {
 		method.validate(body);
 		return method.query(url, body).expand(
 			r => r.nextPageToken ?
-				method.query(url, assoc(body, 'pageToken', r.nextPageToken)) :
+				method.query(url, merge(body, {pageToken: r.nextPageToken})) :
 				Rx.Observable.empty()
 		).map(method.selector).toArray().map(a => _.flatten(a, true)); // XXX ob.reduce would be faster
 	};
 }
 
-module.exports = assoc(_.mapObject(methods, onePageQuery),
-		'all', _.mapObject(methods, allPagesQuery));
+module.exports = merge(_.mapObject(methods, onePageQuery),
+		{all: _.mapObject(methods, allPagesQuery)});
