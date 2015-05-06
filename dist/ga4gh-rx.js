@@ -1,10 +1,10 @@
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory(require("underscore"), require("rx-dom"), require("rx.experimental"));
+		module.exports = factory(require("underscore"), require("rx"), require("rx-dom"));
 	else if(typeof define === 'function' && define.amd)
-		define(["underscore", "rx-dom", "rx.experimental"], factory);
+		define(["underscore", "rx", "rx-dom"], factory);
 	else if(typeof exports === 'object')
-		exports["ga4gh"] = factory(require("underscore"), require("rx-dom"), require("rx.experimental"));
+		exports["ga4gh"] = factory(require("underscore"), require("rx"), require("rx-dom"));
 	else
 		root["ga4gh"] = factory(root["_"], root["Rx"], root["Rx"]);
 })(this, function(__WEBPACK_EXTERNAL_MODULE_1__, __WEBPACK_EXTERNAL_MODULE_2__, __WEBPACK_EXTERNAL_MODULE_3__) {
@@ -60,7 +60,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	function _slicedToArray(arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i['return']) _i['return'](); } finally { if (_d) throw _e; } } return _arr; } else { throw new TypeError('Invalid attempt to destructure non-iterable instance'); } }
 
 	var _ = __webpack_require__(1);
-	var Rx = __webpack_require__(2); // will pull in Rx core for us.
+	var Rx = __webpack_require__(2);
 	__webpack_require__(3);
 
 	function assertAll(arr) {
@@ -85,24 +85,14 @@ return /******/ (function(modules) { // webpackBootstrap
 		return _.extend.apply(null, [{}].concat(args));
 	}
 
-	// immutable 'set' method for plain js objects.
-	function assoc(o) {
-		for (var _len2 = arguments.length, args = Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
-			args[_key2 - 1] = arguments[_key2];
-		}
-
-		return merge(o, _.object.apply(null, _.partition(args, function (a, i) {
-			return i % 2 === 0;
-		})));
-	}
-
 	//  XXX check rx versions. It's weird that it's modifying this header.
 	//	headers: {'Content-Type': 'application/json' },
 	function post(url, body) {
-		return Rx.DOM.ajax(merge({
+		return Rx.DOM.ajax({
 			url: url,
-			body: body
-		}, { method: 'POST' })).pluck('response').map(JSON.parse);
+			body: body,
+			method: 'POST'
+		}).pluck('response').map(JSON.parse);
 	}
 
 	var methods = {
@@ -232,14 +222,14 @@ return /******/ (function(modules) { // webpackBootstrap
 			var body = merge(method.defaults, props);
 			method.validate(body);
 			return method.query(url, body).expand(function (r) {
-				return r.nextPageToken ? method.query(url, assoc(body, 'pageToken', r.nextPageToken)) : Rx.Observable.empty();
+				return r.nextPageToken ? method.query(url, merge(body, { pageToken: r.nextPageToken })) : Rx.Observable.empty();
 			}).map(method.selector).toArray().map(function (a) {
 				return _.flatten(a, true);
 			}); // XXX ob.reduce would be faster
 		};
 	}
 
-	module.exports = assoc(_.mapObject(methods, onePageQuery), 'all', _.mapObject(methods, allPagesQuery));
+	module.exports = merge(_.mapObject(methods, onePageQuery), { all: _.mapObject(methods, allPagesQuery) });
 
 /***/ },
 /* 1 */
